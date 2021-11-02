@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
+import 'package:get/get.dart';
 import 'package:supy_io_test/features/employee/infrastructure/models/employee_model.dart';
+import 'package:supy_io_test/features/employee/presentation/pages/detalis_employee/details_employee.dart';
 import 'package:supy_io_test/libraries/el_widgets/widgets/responsive_sized_box.dart';
 
 import 'employee_item.dart';
@@ -16,9 +18,9 @@ class AllEmployeeBody extends StatelessWidget {
     return AnimationLimiter(
       child: ListView.separated(
         shrinkWrap: true,
-        physics: BouncingScrollPhysics(),
+        physics: const BouncingScrollPhysics(),
         itemCount: allEmployeeList.length,
-        separatorBuilder: (_, index) => RSizedBox.v8(),
+        separatorBuilder: (_, index) => const RSizedBox.v8(),
         itemBuilder: (_, index) => AnimationConfiguration.staggeredList(
           position: index,
           duration: const Duration(milliseconds: 1000),
@@ -28,7 +30,10 @@ class AllEmployeeBody extends StatelessWidget {
               child: EmployeeItem(
                 index: index,
                 employee: allEmployeeList[index],
-                tap: () {},
+                tap: () {
+                  Get.to(() =>
+                      DetailsEmployee(employeeModel: allEmployeeList[index]));
+                },
               ),
             ),
           ),

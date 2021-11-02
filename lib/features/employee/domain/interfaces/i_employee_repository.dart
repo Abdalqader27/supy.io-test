@@ -1,12 +1,8 @@
-import 'package:supy_io_test/common/platform/connectivity.dart';
-import 'package:supy_io_test/features/employee/infrastructure/data_source/remote/employee_remote.dart';
+import 'package:supy_io_test/common/networks/api_result/api_result.dart';
+import 'package:supy_io_test/features/employee/infrastructure/models/employee_model.dart';
 
 abstract class IEmployeeRepository {
-  final Connectivity connectivity;
-  final EmployeeRemote employeeRemote;
+  Future<ApiResult<List<EmployeeModel>>> fetchAllEmployee();
 
-  IEmployeeRepository({
-    required this.connectivity,
-    required this.employeeRemote,
-  });
+  Future<ApiResult<EmployeeModel>> fetchEmployeeById({required int id});
 }

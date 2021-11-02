@@ -15,8 +15,10 @@ class _DetailsSearchPageState extends State<DetailsSearchPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: RPadding.all8(
-          child: Lottie.asset(Assets.lottieSearch, height: 0.2.sh)),
+      body: Center(
+        child: RPadding.all8(
+            child: Lottie.asset(Assets.lottieSearch, height: 0.2.sh)),
+      ),
     );
   }
 }

@@ -5,7 +5,7 @@ import 'core/config/app/app_config.dart';
 import 'libraries/init_app/run_app.dart';
 
 void main() async {
-  /// for injection all your objects as singleton or factory or else .....
+  /// inti for injection all your objects as singleton or factory or else .....
   await injection.init();
 
   runApplication(

@@ -1,0 +1,46 @@
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:supy_io_test/libraries/flutter_screenutil/flutter_screenutil.dart';
+
+import 'image_view.dart';
+
+class ImageNetwork extends StatelessWidget {
+  final String path;
+  final BoxFit? fit;
+  final Widget? placeHolder;
+  final bool hasHero;
+
+  const ImageNetwork(
+      {Key? key,
+      required this.path,
+      this.fit,
+      this.placeHolder,
+      this.hasHero = true})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+        child: Hero(
+            tag: path,
+            child: CachedNetworkImage(
+              placeholder: (context, url) => placeHolder ?? Container(),
+              fit: fit ?? BoxFit.cover,
+              imageUrl: path,
+              errorWidget: (context, _, error) {
+                return Center(
+                    child: Icon(Icons.error_outline_rounded, size: 6.0.w));
+              },
+            )),
+        onTap: () {
+          if (hasHero) {
+            Get.dialog(Center(
+                child: Hero(
+              child: ImageView(image: path, showBack: true),
+              tag: path,
+            )));
+          }
+        });
+  }
+}

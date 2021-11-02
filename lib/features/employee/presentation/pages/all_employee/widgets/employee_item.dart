@@ -24,27 +24,26 @@ class EmployeeItem extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          imageCircleNetwork(employee.avatar),
-          SizedBox(width: 2.0.w),
-          Container(
-            width: 70.0.w,
+          imageCircleNetwork(
+              'https://cdn.fakercloud.com/avatars/kazaky999_128.jpg'),
+          const RSizedBox.h4(),
+          Expanded(
             child: Card(
-              elevation: 0,
-              clipBehavior: Clip.antiAlias,
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(15)),
-              child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 4.0.w),
+              child: RPadding.all4(
                 child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
                       RPadding.all8(
-                        child: MaterialText.headLine6('${employee.name}'),
+                        child: MaterialText.headLine6(
+                          employee.name,
+                          style: Theme.of(context)
+                              .textTheme
+                              .subtitle2!
+                              .copyWith(fontWeight: FontWeight.bold),
+                        ),
                       ),
                       RPadding.all8(
-                        child:
-                            MaterialText.headLine6('${employee.description}'),
+                        child: MaterialText.subTitle1(employee.description),
                       )
                     ]),
               ),
@@ -59,9 +58,9 @@ class EmployeeItem extends StatelessWidget {
     return Hero(
       tag: index.toString(),
       child: ClipOval(
-        child: Container(
-            width: 14.0.w,
-            height: 14.0.w,
+        child: SizedBox(
+            width: 70.0.r,
+            height: 70.0.r,
             child: CachedNetworkImage(
               errorWidget: (context, url, error) =>
                   SvgPicture.asset('icons/user.svg'),

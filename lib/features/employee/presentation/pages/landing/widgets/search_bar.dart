@@ -34,7 +34,7 @@ class SearchBar extends StatelessWidget {
 
   @override
   Widget build(context) {
-    return Container(
+    return SizedBox(
       width: .85.sw,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -71,14 +71,12 @@ class SearchBar extends StatelessWidget {
                   color: kSecondary),
               child: AnimatedContainer(
                   curve: Curves.ease,
-                  duration: Duration(milliseconds: 2000),
+                  duration: const Duration(milliseconds: 2000),
                   child: Visibility(
                     visible: true,
-                    child: Container(
-                      child: IconButton(
-                          icon: Icon(Icons.search, size: 20.0.r),
-                          onPressed: onTapSearch),
-                    ),
+                    child: IconButton(
+                        icon: Icon(Icons.search, size: 20.0.r),
+                        onPressed: onTapSearch),
                     replacement: Container(),
                   )),
             ),
@@ -90,10 +88,10 @@ class SearchBar extends StatelessWidget {
                 BoxDecoration(borderRadius: BorderRadius.circular(15.0.sp)),
             child: AnimatedContainer(
                 curve: Curves.ease,
-                duration: Duration(milliseconds: 2000),
+                duration: const Duration(milliseconds: 2000),
                 child: Visibility(
                   visible: false,
-                  child: Container(
+                  child: SizedBox(
                     child: IconButton(
                         icon: Icon(Icons.close, size: 20.0.r), onPressed: null),
                   ),

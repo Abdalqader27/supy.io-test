@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:supy_io_test/features/employee/presentation/pages/landing/widgets/landing_body.dart';
-import 'package:supy_io_test/libraries/init_app/initializers/run_app/export_packages.dart';
+
+import '../../../../../libraries/init_app/initializers/run_app/export_packages.dart';
+import 'widgets/landing_body.dart';
 
 class LandingPage extends StatefulWidget {
   const LandingPage({Key? key}) : super(key: key);
@@ -12,7 +13,7 @@ class LandingPage extends StatefulWidget {
 class _LandingPageState extends State<LandingPage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: LandingBody(),
     );
   }

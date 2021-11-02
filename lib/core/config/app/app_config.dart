@@ -16,8 +16,8 @@ final kAppConfig = AppConfig(
       )),
 );
 const kEasyLocalizationConfig = EasyLocalizationConfig(
-  fallbackLocale: Locale('ar'),
-  startLocale: Locale('ar'),
-  supportedLocales: [Locale('ar')],
+  fallbackLocale: Locale('en'),
+  startLocale: Locale('en'),
+  supportedLocales: [Locale('en')],
   translationsPath: 'res/translation',
 );

@@ -22,6 +22,7 @@ class Application extends StatelessWidget {
       app: ScreenUtilInit(
         builder: () => ThemeProviderInitializer(
           themeProviderConfig: kThemeProviderConfig,
+          // using getMaterial for Navigation Route
           builder: (context, theme) => GetMaterialApp(
               debugShowCheckedModeBanner: false,
               navigatorKey: Catcher.navigatorKey,
@@ -30,7 +31,7 @@ class Application extends StatelessWidget {
               locale: context.locale,
               theme: theme,
               // We should use VRout Navigation
-              home: SafeArea(child: LandingPage())),
+              home: const SafeArea(child: LandingPage())),
         ),
       ),
     );
