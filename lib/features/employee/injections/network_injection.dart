@@ -9,10 +9,10 @@ Future<void> networkInjection() async {
     () => Dio(),
   );
   serviceLocator.registerLazySingleton(() {
-    return DioClient(dio: serviceLocator(), interceptors: []);
+    return DioClient(dio: serviceLocator<Dio>(), interceptors: []);
   });
   serviceLocator.registerLazySingleton(() => InternetConnectionChecker());
 
-  serviceLocator.registerLazySingleton(
-      () => Connectivity(internetChecker: serviceLocator()));
+  serviceLocator.registerLazySingleton(() => Connectivity(
+      internetChecker: serviceLocator<InternetConnectionChecker>()));
 }

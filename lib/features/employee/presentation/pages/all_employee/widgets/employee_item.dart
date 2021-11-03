@@ -24,8 +24,7 @@ class EmployeeItem extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          imageCircleNetwork(
-              'https://cdn.fakercloud.com/avatars/kazaky999_128.jpg'),
+          imageCircleNetwork(employee.avatar),
           const RSizedBox.h4(),
           Expanded(
             child: Card(

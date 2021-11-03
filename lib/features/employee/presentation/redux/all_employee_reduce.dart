@@ -1,30 +1,30 @@
 import 'package:supy_io_test/_injections.dart';
 import 'package:supy_io_test/common/networks/api_result/api_result.dart';
-import 'package:supy_io_test/features/employee/infrastructure/models/employee/all_employee_state.dart';
-import 'package:supy_io_test/features/employee/infrastructure/models/employee_model.dart';
 import 'package:supy_io_test/features/employee/infrastructure/repositories/employee_repository.dart';
+import 'package:supy_io_test/features/employee/presentation/redux/all_employee_state.dart';
 import 'package:supy_io_test/features/employee/presentation/redux/employee_actions.dart';
 
-Future<AllEmployeeState> allEmployeeReducer(
-    AllEmployeeState state, dynamic action) async {
-  AllEmployeeState newState = state;
-  newState.loading = true;
+AllEmployeeState allEmployeeReducer(AllEmployeeState preState, dynamic action) {
+  AllEmployeeState newState = preState;
   if (action is GetAllEmployee) {
-    ApiResult<List<EmployeeModel>> result =
-        await serviceLocator<EmployeeRepository>().fetchAllEmployee();
-    result.map(
-        success: (data) => {
-              newState.loading = false,
-              newState.data = data as List<EmployeeModel>?,
-            },
-        failure: (failure) => {
-              newState.loading = false,
-              newState.error = failure,
-            },
-        empty: (e) => {
-              newState.loading = false,
-              newState.data = [],
-            });
-  } else if (action is GetEmployee) {}
+    serviceLocator<EmployeeRepository>().fetchAllEmployee().then((result) {
+      result.map(success: (success) {
+        newState = AllEmployeeState(ApiResult.success(data: success.data));
+        //  return AllEmployeeState(ApiResult.success(data: success.data));
+      }, failure: (failure) {
+        newState = AllEmployeeState(ApiResult.failure(error: failure.error));
+
+        // return AllEmployeeState(ApiResult.failure(error: failure.error));
+      }, empty: (_) {
+        newState.copyWith(apiResult: const ApiResult.empty());
+
+        //  return AllEmployeeState(const ApiResult.empty());
+      }, loading: (_) {
+        newState.copyWith(apiResult: const ApiResult.loading());
+
+        //    return AllEmployeeState(const ApiResult.loading());
+      });
+    });
+  }
   return newState;
 }

@@ -32,7 +32,7 @@ class EmployeeRepository extends IEmployeeRepository {
     } else {
       const ApiResult.failure(error: NetworkExceptions.noInternetConnection());
     }
-    return const ApiResult.empty();
+    return const ApiResult.loading();
   }
 
   @override

@@ -32,6 +32,10 @@ class _$ApiResultTearOff {
   Empty<T> empty<T>() {
     return Empty<T>();
   }
+
+  Loading<T> loading<T>() {
+    return Loading<T>();
+  }
 }
 
 /// @nodoc
@@ -44,6 +48,7 @@ mixin _$ApiResult<T> {
     required TResult Function(T data) success,
     required TResult Function(NetworkExceptions error) failure,
     required TResult Function() empty,
+    required TResult Function() loading,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -51,6 +56,7 @@ mixin _$ApiResult<T> {
     TResult Function(T data)? success,
     TResult Function(NetworkExceptions error)? failure,
     TResult Function()? empty,
+    TResult Function()? loading,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -58,6 +64,7 @@ mixin _$ApiResult<T> {
     TResult Function(T data)? success,
     TResult Function(NetworkExceptions error)? failure,
     TResult Function()? empty,
+    TResult Function()? loading,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -66,6 +73,7 @@ mixin _$ApiResult<T> {
     required TResult Function(Success<T> value) success,
     required TResult Function(Failure<T> value) failure,
     required TResult Function(Empty<T> value) empty,
+    required TResult Function(Loading<T> value) loading,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -73,6 +81,7 @@ mixin _$ApiResult<T> {
     TResult Function(Success<T> value)? success,
     TResult Function(Failure<T> value)? failure,
     TResult Function(Empty<T> value)? empty,
+    TResult Function(Loading<T> value)? loading,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -80,6 +89,7 @@ mixin _$ApiResult<T> {
     TResult Function(Success<T> value)? success,
     TResult Function(Failure<T> value)? failure,
     TResult Function(Empty<T> value)? empty,
+    TResult Function(Loading<T> value)? loading,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -174,6 +184,7 @@ class _$Success<T> with DiagnosticableTreeMixin implements Success<T> {
     required TResult Function(T data) success,
     required TResult Function(NetworkExceptions error) failure,
     required TResult Function() empty,
+    required TResult Function() loading,
   }) {
     return success(data);
   }
@@ -184,6 +195,7 @@ class _$Success<T> with DiagnosticableTreeMixin implements Success<T> {
     TResult Function(T data)? success,
     TResult Function(NetworkExceptions error)? failure,
     TResult Function()? empty,
+    TResult Function()? loading,
   }) {
     return success?.call(data);
   }
@@ -194,6 +206,7 @@ class _$Success<T> with DiagnosticableTreeMixin implements Success<T> {
     TResult Function(T data)? success,
     TResult Function(NetworkExceptions error)? failure,
     TResult Function()? empty,
+    TResult Function()? loading,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -208,6 +221,7 @@ class _$Success<T> with DiagnosticableTreeMixin implements Success<T> {
     required TResult Function(Success<T> value) success,
     required TResult Function(Failure<T> value) failure,
     required TResult Function(Empty<T> value) empty,
+    required TResult Function(Loading<T> value) loading,
   }) {
     return success(this);
   }
@@ -218,6 +232,7 @@ class _$Success<T> with DiagnosticableTreeMixin implements Success<T> {
     TResult Function(Success<T> value)? success,
     TResult Function(Failure<T> value)? failure,
     TResult Function(Empty<T> value)? empty,
+    TResult Function(Loading<T> value)? loading,
   }) {
     return success?.call(this);
   }
@@ -228,6 +243,7 @@ class _$Success<T> with DiagnosticableTreeMixin implements Success<T> {
     TResult Function(Success<T> value)? success,
     TResult Function(Failure<T> value)? failure,
     TResult Function(Empty<T> value)? empty,
+    TResult Function(Loading<T> value)? loading,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -328,6 +344,7 @@ class _$Failure<T> with DiagnosticableTreeMixin implements Failure<T> {
     required TResult Function(T data) success,
     required TResult Function(NetworkExceptions error) failure,
     required TResult Function() empty,
+    required TResult Function() loading,
   }) {
     return failure(error);
   }
@@ -338,6 +355,7 @@ class _$Failure<T> with DiagnosticableTreeMixin implements Failure<T> {
     TResult Function(T data)? success,
     TResult Function(NetworkExceptions error)? failure,
     TResult Function()? empty,
+    TResult Function()? loading,
   }) {
     return failure?.call(error);
   }
@@ -348,6 +366,7 @@ class _$Failure<T> with DiagnosticableTreeMixin implements Failure<T> {
     TResult Function(T data)? success,
     TResult Function(NetworkExceptions error)? failure,
     TResult Function()? empty,
+    TResult Function()? loading,
     required TResult orElse(),
   }) {
     if (failure != null) {
@@ -362,6 +381,7 @@ class _$Failure<T> with DiagnosticableTreeMixin implements Failure<T> {
     required TResult Function(Success<T> value) success,
     required TResult Function(Failure<T> value) failure,
     required TResult Function(Empty<T> value) empty,
+    required TResult Function(Loading<T> value) loading,
   }) {
     return failure(this);
   }
@@ -372,6 +392,7 @@ class _$Failure<T> with DiagnosticableTreeMixin implements Failure<T> {
     TResult Function(Success<T> value)? success,
     TResult Function(Failure<T> value)? failure,
     TResult Function(Empty<T> value)? empty,
+    TResult Function(Loading<T> value)? loading,
   }) {
     return failure?.call(this);
   }
@@ -382,6 +403,7 @@ class _$Failure<T> with DiagnosticableTreeMixin implements Failure<T> {
     TResult Function(Success<T> value)? success,
     TResult Function(Failure<T> value)? failure,
     TResult Function(Empty<T> value)? empty,
+    TResult Function(Loading<T> value)? loading,
     required TResult orElse(),
   }) {
     if (failure != null) {
@@ -429,7 +451,7 @@ class _$Empty<T> with DiagnosticableTreeMixin implements Empty<T> {
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty('type', 'ApiResult<$T>.empty'));
+    properties..add(DiagnosticsProperty('type', 'ApiResult<$T>.empty'));
   }
 
   @override
@@ -446,6 +468,7 @@ class _$Empty<T> with DiagnosticableTreeMixin implements Empty<T> {
     required TResult Function(T data) success,
     required TResult Function(NetworkExceptions error) failure,
     required TResult Function() empty,
+    required TResult Function() loading,
   }) {
     return empty();
   }
@@ -456,6 +479,7 @@ class _$Empty<T> with DiagnosticableTreeMixin implements Empty<T> {
     TResult Function(T data)? success,
     TResult Function(NetworkExceptions error)? failure,
     TResult Function()? empty,
+    TResult Function()? loading,
   }) {
     return empty?.call();
   }
@@ -466,6 +490,7 @@ class _$Empty<T> with DiagnosticableTreeMixin implements Empty<T> {
     TResult Function(T data)? success,
     TResult Function(NetworkExceptions error)? failure,
     TResult Function()? empty,
+    TResult Function()? loading,
     required TResult orElse(),
   }) {
     if (empty != null) {
@@ -480,6 +505,7 @@ class _$Empty<T> with DiagnosticableTreeMixin implements Empty<T> {
     required TResult Function(Success<T> value) success,
     required TResult Function(Failure<T> value) failure,
     required TResult Function(Empty<T> value) empty,
+    required TResult Function(Loading<T> value) loading,
   }) {
     return empty(this);
   }
@@ -490,6 +516,7 @@ class _$Empty<T> with DiagnosticableTreeMixin implements Empty<T> {
     TResult Function(Success<T> value)? success,
     TResult Function(Failure<T> value)? failure,
     TResult Function(Empty<T> value)? empty,
+    TResult Function(Loading<T> value)? loading,
   }) {
     return empty?.call(this);
   }
@@ -500,6 +527,7 @@ class _$Empty<T> with DiagnosticableTreeMixin implements Empty<T> {
     TResult Function(Success<T> value)? success,
     TResult Function(Failure<T> value)? failure,
     TResult Function(Empty<T> value)? empty,
+    TResult Function(Loading<T> value)? loading,
     required TResult orElse(),
   }) {
     if (empty != null) {
@@ -511,4 +539,123 @@ class _$Empty<T> with DiagnosticableTreeMixin implements Empty<T> {
 
 abstract class Empty<T> implements ApiResult<T> {
   const factory Empty() = _$Empty<T>;
+}
+
+/// @nodoc
+abstract class $LoadingCopyWith<T, $Res> {
+  factory $LoadingCopyWith(Loading<T> value, $Res Function(Loading<T>) then) =
+      _$LoadingCopyWithImpl<T, $Res>;
+}
+
+/// @nodoc
+class _$LoadingCopyWithImpl<T, $Res> extends _$ApiResultCopyWithImpl<T, $Res>
+    implements $LoadingCopyWith<T, $Res> {
+  _$LoadingCopyWithImpl(Loading<T> _value, $Res Function(Loading<T>) _then)
+      : super(_value, (v) => _then(v as Loading<T>));
+
+  @override
+  Loading<T> get _value => super._value as Loading<T>;
+}
+
+/// @nodoc
+
+class _$Loading<T> with DiagnosticableTreeMixin implements Loading<T> {
+  const _$Loading();
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'ApiResult<$T>.loading()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties..add(DiagnosticsProperty('type', 'ApiResult<$T>.loading'));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is Loading<T>);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(T data) success,
+    required TResult Function(NetworkExceptions error) failure,
+    required TResult Function() empty,
+    required TResult Function() loading,
+  }) {
+    return loading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(T data)? success,
+    TResult Function(NetworkExceptions error)? failure,
+    TResult Function()? empty,
+    TResult Function()? loading,
+  }) {
+    return loading?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(T data)? success,
+    TResult Function(NetworkExceptions error)? failure,
+    TResult Function()? empty,
+    TResult Function()? loading,
+    required TResult orElse(),
+  }) {
+    if (loading != null) {
+      return loading();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Success<T> value) success,
+    required TResult Function(Failure<T> value) failure,
+    required TResult Function(Empty<T> value) empty,
+    required TResult Function(Loading<T> value) loading,
+  }) {
+    return loading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Success<T> value)? success,
+    TResult Function(Failure<T> value)? failure,
+    TResult Function(Empty<T> value)? empty,
+    TResult Function(Loading<T> value)? loading,
+  }) {
+    return loading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Success<T> value)? success,
+    TResult Function(Failure<T> value)? failure,
+    TResult Function(Empty<T> value)? empty,
+    TResult Function(Loading<T> value)? loading,
+    required TResult orElse(),
+  }) {
+    if (loading != null) {
+      return loading(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class Loading<T> implements ApiResult<T> {
+  const factory Loading() = _$Loading<T>;
 }

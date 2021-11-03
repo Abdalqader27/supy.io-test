@@ -22,12 +22,12 @@ class LandingBody extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           RPadding.all8(child: Lottie.asset(Assets.lottieTeam, height: 0.4.sh)),
-          MaterialText.headLine5('Welcome'),
-          MaterialText.bodyText2('Nice to meet you !!'),
-          RSizedBox.v64(),
+          const MaterialText.headLine5('Welcome'),
+          const MaterialText.bodyText2('Nice to meet you !!'),
+          const RSizedBox.v64(),
           SearchBar(
             onTapSearch: () {
-              Get.to(() => DetailsSearchPage());
+              Get.to(() => const DetailsSearchPage());
             },
           ),
           // RawMaterialButton(
@@ -35,11 +35,11 @@ class LandingBody extends StatelessWidget {
           //   onPressed: () {},
           //   child: MaterialText.button('Show All Employee'),
           // ),
-          RSizedBox.v32(),
+          const RSizedBox.v32(),
 
           TextButton(
             onPressed: () {
-              Get.to(() => AllEmployeePage());
+              Get.to(() => const AllEmployeePage());
             },
             child: Container(
               decoration: BoxDecoration(

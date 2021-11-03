@@ -11,4 +11,5 @@ class ApiResult<T> with _$ApiResult<T> {
   const factory ApiResult.failure({required NetworkExceptions error}) =
       Failure<T>;
   const factory ApiResult.empty() = Empty<T>;
+  const factory ApiResult.loading() = Loading<T>;
 }

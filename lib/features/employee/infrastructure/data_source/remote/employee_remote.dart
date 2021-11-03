@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:either_dart/either.dart';
 import 'package:supy_io_test/common/exceptions/network_exceptions/network_exceptions.dart';
 import 'package:supy_io_test/common/networks/dio_client.dart';
@@ -18,9 +16,9 @@ class EmployeeRemote extends ApiEmployeeService {
     try {
       final response = await dioClient.get(kEmployeeRoute);
       List<EmployeeModel> employeeList = List<EmployeeModel>.from(
-        json.decode(response).map(
-              (data) => EmployeeModel.fromJson(data),
-            ),
+        (response).map(
+          (data) => EmployeeModel.fromJson(data),
+        ),
       );
       return Right(employeeList);
     } catch (e) {
