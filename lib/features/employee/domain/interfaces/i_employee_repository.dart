@@ -4,5 +4,5 @@ import 'package:supy_io_test/features/employee/infrastructure/models/employee_mo
 abstract class IEmployeeRepository {
   Future<ApiResult<List<EmployeeModel>>> fetchAllEmployee();
 
-  Future<ApiResult<EmployeeModel>> fetchEmployeeById({required int id});
+  Future<ApiResult<EmployeeModel>> fetchEmployeeById({required String id});
 }

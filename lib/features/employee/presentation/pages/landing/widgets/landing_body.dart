@@ -1,3 +1,4 @@
+import 'package:bot_toast/bot_toast.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
@@ -18,48 +19,53 @@ class LandingBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          RPadding.all8(child: Lottie.asset(Assets.lottieTeam, height: 0.4.sh)),
-          const MaterialText.headLine5('Welcome'),
-          const MaterialText.bodyText2('Nice to meet you !!'),
-          const RSizedBox.v64(),
-          SearchBar(
-            keyboardType: TextInputType.number,
-            editingController: controller,
-            onTapSearch: () {
-              if (controller.text.isNumericOnly) {
-                Get.to(() => const DetailsSearchPage());
-              }
-            },
-          ),
-          const RSizedBox.v32(),
-          TextButton(
-            onPressed: () {
-              Get.to(() => const AllEmployeePage());
-            },
-            child: Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(25),
-                color: Colors.transparent,
-                border: Border.all(width: 4, color: kSecondary),
-              ),
-              height: 45.r,
-              width: .45.sw,
-              child: const Center(
-                child: Text(
-                  "Show All Employee",
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontWeight: FontWeight.bold,
+      child: Center(
+        child: Column(
+          children: [
+            RPadding.all8(
+                child: Lottie.asset(Assets.lottieTeam, height: 0.4.sh)),
+            const MaterialText.headLine5('Welcome'),
+            const MaterialText.bodyText2('Nice to meet you !!'),
+            const RSizedBox.v64(),
+            SearchBar(
+              keyboardType: TextInputType.number,
+              editingController: controller,
+              onTapSearch: () {
+                if (controller.text.isNumericOnly) {
+                  Get.to(() => DetailsSearchPage(id: controller.text));
+                } else {
+                  BotToast.showText(
+                      text:
+                          'Please make sure your field is not empty and is number');
+                }
+              },
+            ),
+            const RSizedBox.v32(),
+            TextButton(
+              onPressed: () {
+                Get.to(() => const AllEmployeePage());
+              },
+              child: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(25),
+                  color: Colors.transparent,
+                  border: Border.all(width: 4, color: kSecondary),
+                ),
+                height: 45.r,
+                width: .45.sw,
+                child: const Center(
+                  child: Text(
+                    "Show All Employee",
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

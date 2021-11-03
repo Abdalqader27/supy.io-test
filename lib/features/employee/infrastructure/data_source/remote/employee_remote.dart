@@ -28,7 +28,7 @@ class EmployeeRemote extends ApiEmployeeService {
 
   @override
   Future<Either<NetworkExceptions, EmployeeModel>> fetchEmployeeById(
-      {required int id}) async {
+      {required String id}) async {
     try {
       final response = await dioClient.get(kEmployeeRoute + '/$id');
       return Right(EmployeeModel.fromJson(response));

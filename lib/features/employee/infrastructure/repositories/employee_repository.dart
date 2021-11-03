@@ -36,7 +36,8 @@ class EmployeeRepository extends IEmployeeRepository {
   }
 
   @override
-  Future<ApiResult<EmployeeModel>> fetchEmployeeById({required int id}) async {
+  Future<ApiResult<EmployeeModel>> fetchEmployeeById(
+      {required String id}) async {
     if (await connectivity.isConnected) {
       final Either<NetworkExceptions, EmployeeModel> result =
           await employeeRemote.fetchEmployeeById(id: id);

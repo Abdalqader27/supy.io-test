@@ -26,7 +26,7 @@ class Circle extends StatelessWidget {
           width: dim!.r,
           height: dim!.r,
           decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(100),
+              borderRadius: BorderRadius.circular(100.r),
               color: backGroundColor,
               border: Border.all(width: 2, color: backGroundColor!)),
           child: RPadding.all12(child: Center(child: child)),

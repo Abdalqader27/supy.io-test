@@ -2,18 +2,18 @@ import 'package:supy_io_test/features/employee/infrastructure/models/employee_mo
 
 class LoadingAction {}
 
-class GetAllEmployeeAction {
-  final List<EmployeeModel> listEmployeeModel;
-
-  GetAllEmployeeAction(this.listEmployeeModel);
-}
-
 class EmptyAction {}
 
 class ErrorAction {}
 
-class GetEmployeeAction {
+class GetEmployeesAction {
+  final List<EmployeeModel> listEmployeeModel;
+
+  GetEmployeesAction(this.listEmployeeModel);
+}
+
+class GetEmployeeByIdAction {
   final EmployeeModel employeeModel;
 
-  GetEmployeeAction(this.employeeModel);
+  GetEmployeeByIdAction(this.employeeModel);
 }

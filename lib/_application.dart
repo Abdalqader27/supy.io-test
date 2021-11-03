@@ -1,3 +1,4 @@
+import 'package:bot_toast/bot_toast.dart';
 import 'package:catcher/catcher.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -17,6 +18,8 @@ class Application extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final botToastBuilder = BotToastInit(); //1. call BotToastInit
+
     return EasyLocalizationInitializer(
       config: kEasyLocalizationConfig,
       app: ScreenUtilInit(
@@ -24,11 +27,16 @@ class Application extends StatelessWidget {
           themeProviderConfig: kThemeProviderConfig,
           // using getMaterial for Navigation Route
           builder: (context, theme) => GetMaterialApp(
+              builder: (context, child) {
+                child = botToastBuilder(context, child);
+                return child;
+              },
               debugShowCheckedModeBanner: false,
               navigatorKey: Catcher.navigatorKey,
               localizationsDelegates: context.localizationDelegates,
               supportedLocales: context.supportedLocales,
               locale: context.locale,
+              navigatorObservers: [BotToastNavigatorObserver()],
               theme: theme,
               // We should use VRout Navigation
               home: const SafeArea(child: LandingPage())),

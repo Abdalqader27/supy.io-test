@@ -5,8 +5,8 @@ import 'package:supy_io_test/common/networks/dio_client.dart';
 import 'package:supy_io_test/common/platform/connectivity.dart';
 import 'package:supy_io_test/features/employee/infrastructure/data_source/remote/employee_remote.dart';
 import 'package:supy_io_test/features/employee/infrastructure/repositories/employee_repository.dart';
-import 'package:supy_io_test/features/employee/presentation/redux/app_state.dart';
-import 'package:supy_io_test/features/employee/presentation/redux/reducer.dart';
+import 'package:supy_io_test/features/employee/presentation/redux/employee_reducer.dart';
+import 'package:supy_io_test/features/employee/presentation/redux/employee_state.dart';
 
 import '../../../_injections.dart';
 
@@ -20,10 +20,14 @@ class EmployeeInjection {
           connectivity: serviceLocator<Connectivity>(),
           employeeRemote: serviceLocator<EmployeeRemote>(),
         ));
-    serviceLocator.registerLazySingleton(() => Store<AppState>(reducer,
-        initialState: AppState(
-            employeeList: const ApiResult.loading(),
-            currentEmployee: const ApiResult.loading()),
-        middleware: [thunkMiddleware]));
+
+    serviceLocator.registerFactory(
+      () => Store<EmployeeState>(employeeReducer,
+          distinct: true,
+          initialState: EmployeeState(
+              employee: const ApiResult.loading(),
+              employeeList: const ApiResult.loading()),
+          middleware: [thunkMiddleware]),
+    );
   }
 }

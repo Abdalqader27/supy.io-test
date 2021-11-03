@@ -3,7 +3,7 @@ import 'package:supy_io_test/common/config/theme/text_theme.dart';
 import 'package:supy_io_test/generated/assets.dart';
 import 'package:theme_provider/theme_provider.dart';
 
-import '../card_styles.dart';
+import '../styles/card_styles.dart';
 import 'colors.dart';
 
 /// Light theme
@@ -14,8 +14,7 @@ final kLightMod = ThemeData(
   textTheme: textTheme,
   fontFamily: Assets.fontsSstArabicBold,
   iconTheme: const IconThemeData(color: kPRIMARY),
-  cardTheme:
-      CardTheme(shape: kCardStyle1, clipBehavior: Clip.antiAlias, elevation: 0),
+  cardTheme: kCardStyle1,
   colorScheme: ThemeData.light().colorScheme.copyWith(
         primary: kPRIMARY,
         secondary: kSecondary,
@@ -27,8 +26,7 @@ final kDarkMod = ThemeData(
   primaryColor: kPRIMARY,
   brightness: Brightness.dark,
   textTheme: textTheme,
-  cardTheme:
-      CardTheme(shape: kCardStyle1, clipBehavior: Clip.antiAlias, elevation: 0),
+  cardTheme: kCardStyle1,
   fontFamily: Assets.fontsSstArabicBold,
   colorScheme: ThemeData.dark().colorScheme.copyWith(
         primary: kPRIMARY,

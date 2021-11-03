@@ -16,15 +16,13 @@ class ClassicAppBar extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        const CloseWidget(
-          icon: Icons.arrow_back_ios_sharp,
-        ),
+        const CloseWidget(icon: Icons.arrow_back_ios_sharp),
         Expanded(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               MaterialText.headLine5(title),
-              if (subTitle != null) Text(subTitle!),
+              Visibility(visible: subTitle != null, child: Text(subTitle!)),
             ],
           ),
         ),

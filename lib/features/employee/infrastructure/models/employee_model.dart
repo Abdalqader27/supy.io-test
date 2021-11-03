@@ -1,14 +1,6 @@
-import 'dart:convert';
-
 import '../../domain/entities/employee_entity.dart';
 
-/// TODO => use this website for converting [https://app.quicktype.io/]
-List<EmployeeModel> employeeModelFromJson(String str) =>
-    List<EmployeeModel>.from(
-        json.decode(str).map((x) => EmployeeModel.fromJson(x)));
-
-String employeeModelToJson(List<EmployeeModel> data) =>
-    json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
+/// use this website for converting [https://app.quicktype.io/]
 
 class EmployeeModel extends EmployeeEntity {
   EmployeeModel({
