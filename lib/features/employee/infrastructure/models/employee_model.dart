@@ -2,30 +2,25 @@ import '../../domain/entities/employee_entity.dart';
 
 /// use this website for converting [https://app.quicktype.io/]
 
-class EmployeeModel extends EmployeeEntity {
+class EmployeeModel implements EmployeeEntity {
   EmployeeModel({
     required this.createdAt,
     required this.name,
     required this.avatar,
     required this.description,
     required this.id,
-  }) : super(
-            id: id,
-            avatar: avatar,
-            createdAt: createdAt,
-            description: description,
-            name: name);
+  });
 
   @override
-  String createdAt;
+  final String createdAt;
   @override
-  String name;
+  final String name;
   @override
-  String avatar;
+  final String avatar;
   @override
-  String description;
+  final String description;
   @override
-  String id;
+  final String id;
 
   factory EmployeeModel.fromJson(Map<String, dynamic> json) => EmployeeModel(
         createdAt: json["createdAt"],

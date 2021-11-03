@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:supy_io_test/common/widgets/classic_app_bar.dart';
 import 'package:supy_io_test/common/widgets/loading_widget.dart';
-import 'package:supy_io_test/features/employee/infrastructure/models/employee_model.dart';
 import 'package:supy_io_test/features/employee/presentation/redux/employee_state.dart';
 import 'package:supy_io_test/features/employee/presentation/redux/employee_thunks.dart';
 import 'package:supy_io_test/libraries/el_widgets/el_widgets.dart';
@@ -30,28 +29,18 @@ class _DetailsSearchPageState extends State<DetailsSearchPage> {
               const RSizedBox.v32(),
               Expanded(
                 child: StoreConnector<EmployeeState, dynamic>(
-                  converter: (convert) => convert.state.employee,
+                  converter: (convert) => convert.state,
                   onInit: (store) =>
                       store.dispatch(getEmployeeByIdThunks(widget.id)),
-                  builder: (context, viewModel) {
-                    print(viewModel);
-                    if (viewModel == null) {
+                  builder: (context, state) {
+                    if (state is SuccessState) {
+                      final employee = state.employee!;
+                      return MaterialText.headLine6(employee.name.toString());
+                    } else if (state is FailureState) {
+                      return Text(state.message);
+                    } else {
                       return const LoadingWidget();
                     }
-                    return viewModel.when(
-                      success: (EmployeeModel data) {
-                        return MaterialText.headLine6(data.name.toString());
-                      },
-                      failure: (e) {
-                        return Text("$e");
-                      },
-                      empty: () {
-                        return const Text("Empty");
-                      },
-                      loading: () {
-                        return const LoadingWidget();
-                      },
-                    );
                   },
                 ),
               ),

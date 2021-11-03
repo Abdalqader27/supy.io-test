@@ -1,6 +1,5 @@
 import 'package:redux/redux.dart';
 import 'package:redux_thunk/redux_thunk.dart';
-import 'package:supy_io_test/common/networks/api_result/api_result.dart';
 import 'package:supy_io_test/common/networks/dio_client.dart';
 import 'package:supy_io_test/common/platform/connectivity.dart';
 import 'package:supy_io_test/features/employee/infrastructure/data_source/remote/employee_remote.dart';
@@ -24,9 +23,7 @@ class EmployeeInjection {
     serviceLocator.registerFactory(
       () => Store<EmployeeState>(employeeReducer,
           distinct: true,
-          initialState: EmployeeState(
-              employee: const ApiResult.loading(),
-              employeeList: const ApiResult.loading()),
+          initialState: LoadingState(),
           middleware: [thunkMiddleware]),
     );
   }

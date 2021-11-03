@@ -27,21 +27,20 @@ class _AllEmployeePageState extends State<AllEmployeePage> {
               const RSizedBox.v32(),
               Expanded(
                 child: StoreConnector<EmployeeState, dynamic>(
-                  converter: (convert) => convert.state.employeeList,
+                  converter: (convert) => convert.state,
                   onInit: (store) => store..dispatch(getEmployeesThunks()),
-                  builder: (context, viewModel) {
-                    if (viewModel == null) {
+                  builder: (context, state) {
+                    if (state is SuccessState) {
+                      final employeeList = state.employeeList!;
+                      if (employeeList.isEmpty) {
+                        return const Text("Empty");
+                      }
+                      return AllEmployeeBody(allEmployeeList: employeeList);
+                    } else if (state is FailureState) {
+                      return Text(state.message);
+                    } else {
                       return const LoadingWidget();
                     }
-                    return viewModel.map(success: (data) {
-                      return AllEmployeeBody(allEmployeeList: data.data);
-                    }, failure: (e) {
-                      return Text("$e");
-                    }, empty: (_) {
-                      return const Text("Empty");
-                    }, loading: (_) {
-                      return const LoadingWidget();
-                    });
                   },
                 ),
               ),

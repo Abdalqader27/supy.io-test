@@ -1,18 +1,22 @@
-import 'package:supy_io_test/common/networks/api_result/api_result.dart';
 import 'package:supy_io_test/features/employee/infrastructure/models/employee_model.dart';
 
-class EmployeeState {
-  ApiResult<List<EmployeeModel>>? employeeList;
-  ApiResult<EmployeeModel>? employee;
+abstract class EmployeeState {
+  const EmployeeState();
+}
 
-  EmployeeState({
-    this.employeeList,
-    this.employee,
-  });
+class LoadingState extends EmployeeState {}
 
-  factory EmployeeState.initial({employeeList = const [], currentEmployee}) =>
-      EmployeeState(
-        employeeList: employeeList,
-        employee: currentEmployee,
-      );
+class FailureState extends EmployeeState {
+  final String message;
+
+  FailureState(this.message);
+}
+
+class EmptyState extends EmployeeState {}
+
+class SuccessState extends EmployeeState {
+  final List<EmployeeModel>? employeeList;
+  final EmployeeModel? employee;
+
+  SuccessState({this.employeeList, this.employee});
 }

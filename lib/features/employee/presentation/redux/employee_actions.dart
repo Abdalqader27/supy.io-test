@@ -4,7 +4,11 @@ class LoadingAction {}
 
 class EmptyAction {}
 
-class ErrorAction {}
+class FailureAction {
+  final String message;
+
+  FailureAction(this.message);
+}
 
 class GetEmployeesAction {
   final List<EmployeeModel> listEmployeeModel;
