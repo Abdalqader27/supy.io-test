@@ -16,6 +16,7 @@ ThunkAction<EmployeeState> getEmployeesThunks(int pageKey) {
     ApiResult<List<EmployeeModel>> list =
         await serviceLocator<EmployeeRepository>()
             .fetchAllEmployee(limit: pageKey);
+
     return list.when(
       success: (data) => store.dispatch(GetEmployeesAction(data)),
       failure: (e) =>
