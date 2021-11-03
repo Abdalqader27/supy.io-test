@@ -11,13 +11,11 @@ class LottieWidget extends StatelessWidget {
       : super(key: key);
 
   const factory LottieWidget.loading({
-    Key? key,
     double width,
     String path,
   }) = _Loading;
 
   const factory LottieWidget.notFound({
-    Key? key,
     double width,
     String path,
   }) = _NotFound;
@@ -35,7 +33,6 @@ class LottieWidget extends StatelessWidget {
 
 class _Loading extends LottieWidget {
   const _Loading({
-    Key? key,
     double width = 160.0,
     String path = Assets.lottieNewLoader,
   }) : super(path: path, width: width);
@@ -43,7 +40,6 @@ class _Loading extends LottieWidget {
 
 class _NotFound extends LottieWidget {
   const _NotFound({
-    Key? key,
     double width = 300,
     String path = Assets.lottieErorr,
   }) : super(path: path, width: width);

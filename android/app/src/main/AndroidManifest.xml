@@ -1,6 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.abdalqader27.supy_io_test">
-   <application
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
         android:label="supy_io_test"
         android:icon="@mipmap/ic_launcher">
         <activity

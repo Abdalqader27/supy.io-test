@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:supy_io_test/common/widgets/classic_app_bar.dart';
 import 'package:supy_io_test/common/widgets/loading_widget.dart';
+import 'package:supy_io_test/features/employee/presentation/pages/details_search/widgets/body_details_screen.dart';
 import 'package:supy_io_test/features/employee/presentation/redux/employee_state.dart';
 import 'package:supy_io_test/features/employee/presentation/redux/employee_thunks.dart';
 import 'package:supy_io_test/generated/assets.dart';
@@ -32,13 +33,16 @@ class _DetailsSearchPageState extends State<DetailsSearchPage> {
                 child: StoreConnector<EmployeeState, dynamic>(
                   converter: (convert) => convert.state,
                   onInit: (store) =>
-                      store.dispatch(getEmployeeByIdThunks(widget.id)),
+                      store..dispatch(getEmployeeByIdThunks(widget.id)),
                   builder: (context, state) {
                     if (state is SuccessState) {
                       final employee = state.employee!;
-                      return MaterialText.headLine6(employee.name.toString());
-                    } else if (state is FailureState) {
+                      return BodyDetailsSearchScreen(employeeModel: employee);
+                    } else if (state is EmptyState) {
                       return const LottieWidget.notFound();
+                    } else if (state is FailureState) {
+                      return Center(
+                          child: MaterialText.headLine6(state.message));
                     } else {
                       return const LottieWidget.loading(
                           path: Assets.lottieSearch);

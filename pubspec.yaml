@@ -54,6 +54,7 @@ dependencies:
   redux: ^5.0.0
   fluttericon: ^2.0.0
   redux_thunk: ^0.4.0
+  infinite_scroll_pagination: ^3.1.0
 
 
 dev_dependencies:

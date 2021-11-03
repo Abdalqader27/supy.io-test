@@ -32,7 +32,8 @@ class AllEmployeeBody extends StatelessWidget {
                 employee: allEmployeeList[index],
                 tap: () {
                   Get.to(() {
-                    DetailsEmployee(employeeModel: allEmployeeList[index]);
+                    return DetailsEmployee(
+                        employeeModel: allEmployeeList[index]);
                   });
                 },
               ),

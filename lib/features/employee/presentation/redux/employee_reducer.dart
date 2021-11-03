@@ -16,3 +16,4 @@ EmployeeState employeeReducer(EmployeeState preState, dynamic action) {
 
   return state;
 }
+// I want to use combineReducers but this is a simple app

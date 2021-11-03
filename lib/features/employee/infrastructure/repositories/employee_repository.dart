@@ -19,7 +19,7 @@ class EmployeeRepository extends IEmployeeRepository {
   Future<ApiResult<List<EmployeeModel>>> fetchAllEmployee({int? limit}) async {
     if (await connectivity.isConnected) {
       final Either<NetworkExceptions, List<EmployeeModel>> employeeResult =
-          await employeeRemote.fetchAllEmployee();
+          await employeeRemote.fetchAllEmployee(limit: limit);
 
       if (employeeResult.isRight) {
         if (employeeResult.right.isEmpty) {
@@ -30,9 +30,9 @@ class EmployeeRepository extends IEmployeeRepository {
         return ApiResult.failure(error: employeeResult.left);
       }
     } else {
-      const ApiResult.failure(error: NetworkExceptions.noInternetConnection());
+      return const ApiResult.failure(
+          error: NetworkExceptions.noInternetConnection());
     }
-    return const ApiResult.loading();
   }
 
   @override
@@ -48,8 +48,8 @@ class EmployeeRepository extends IEmployeeRepository {
         return ApiResult.failure(error: result.left);
       }
     } else {
-      const ApiResult.failure(error: NetworkExceptions.noInternetConnection());
+      return const ApiResult.failure(
+          error: NetworkExceptions.noInternetConnection());
     }
-    return const ApiResult.empty();
   }
 }

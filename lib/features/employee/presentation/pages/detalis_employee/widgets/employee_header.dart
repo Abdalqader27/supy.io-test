@@ -12,7 +12,6 @@ class EmployeeHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ThemeData themeData = Theme.of(context);
     return AnimationConfiguration.synchronized(
       duration: const Duration(milliseconds: 1500),
       child: SlideAnimation(
@@ -20,22 +19,22 @@ class EmployeeHeader extends StatelessWidget {
         child: FadeInAnimation(
           child: RPadding.all16(
             child: Card(
-              child: ListTile(
-                leading:
-                    Icon(LineariconsFree.user_1, color: themeData.primaryColor),
-                title: RPadding.all4(
-                    child: MaterialText.headLine6(employeeModel.name)),
-                subtitle: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const RSizedBox.v16(),
-                    MaterialText.bodyText2(employeeModel.description),
-                    const RSizedBox.v16(),
-                    MaterialText.bodyText2(employeeModel.createdAt),
-                    const RSizedBox.v16(),
-                    MaterialText.bodyText2(employeeModel.id),
-                    const RSizedBox.v16(),
-                  ],
+              child: RPadding.all16(
+                child: ListTile(
+                  leading: const Icon(LineariconsFree.users),
+                  title: MaterialText.headLine6(employeeModel.name),
+                  subtitle: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const RSizedBox.v16(),
+                      MaterialText.bodyText2(employeeModel.id),
+                      const RSizedBox.v16(),
+                      MaterialText.bodyText2(employeeModel.createdAt),
+                      const RSizedBox.v16(),
+                      MaterialText.bodyText2(employeeModel.description),
+                      const RSizedBox.v16(),
+                    ],
+                  ),
                 ),
               ),
             ),

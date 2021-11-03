@@ -9,12 +9,13 @@ import 'package:supy_io_test/features/employee/presentation/redux/employee_actio
 
 import 'employee_state.dart';
 
-ThunkAction<EmployeeState> getEmployeesThunks() {
+ThunkAction<EmployeeState> getEmployeesThunks(int pageKey) {
   return (Store<EmployeeState> store) async {
     store.dispatch(LoadingAction());
 
     ApiResult<List<EmployeeModel>> list =
-        await serviceLocator<EmployeeRepository>().fetchAllEmployee();
+        await serviceLocator<EmployeeRepository>()
+            .fetchAllEmployee(limit: pageKey);
     return list.when(
       success: (data) => store.dispatch(GetEmployeesAction(data)),
       failure: (e) =>
@@ -28,13 +29,12 @@ ThunkAction<EmployeeState> getEmployeesThunks() {
 ThunkAction<EmployeeState> getEmployeeByIdThunks(String id) {
   return (Store<EmployeeState> store) async {
     store.dispatch(LoadingAction());
-
     ApiResult<EmployeeModel> employee =
         await serviceLocator<EmployeeRepository>().fetchEmployeeById(id: id);
     employee.when(
       success: (data) => store.dispatch(GetEmployeeByIdAction(data)),
       failure: (e) =>
-          store.dispatch(FailureAction(NetworkExceptions.getErrorMessage(e))),
+          store..dispatch(FailureAction(NetworkExceptions.getErrorMessage(e))),
       empty: () => store.dispatch(EmptyAction()),
       loading: () => store.dispatch(LoadingAction()),
     );

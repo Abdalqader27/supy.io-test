@@ -15,6 +15,8 @@ class AllEmployeePage extends StatefulWidget {
 }
 
 class _AllEmployeePageState extends State<AllEmployeePage> {
+  static const _pageSize = 20;
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -27,16 +29,20 @@ class _AllEmployeePageState extends State<AllEmployeePage> {
               Expanded(
                 child: StoreConnector<EmployeeState, dynamic>(
                   converter: (convert) => convert.state,
-                  onInit: (store) => store..dispatch(getEmployeesThunks()),
+                  onInit: (store) => store
+                    ..dispatch(
+                      getEmployeesThunks(_pageSize),
+                    ),
                   builder: (context, state) {
                     if (state is SuccessState) {
                       final employeeList = state.employeeList!;
                       if (employeeList.isEmpty) {
-                        return const Text("Empty");
+                        return const LottieWidget.notFound();
                       }
                       return AllEmployeeBody(allEmployeeList: employeeList);
                     } else if (state is FailureState) {
-                      return Text(state.message);
+                      return Center(
+                          child: MaterialText.headLine6(state.message));
                     } else {
                       return const LottieWidget.loading();
                     }
