@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:supy_io_test/common/widgets/classic_app_bar.dart';
-import 'package:supy_io_test/common/widgets/loading_widget.dart';
+import 'package:supy_io_test/common/widgets/lottie_widget.dart';
 import 'package:supy_io_test/features/employee/presentation/pages/details_search/widgets/body_details_screen.dart';
 import 'package:supy_io_test/features/employee/presentation/redux/employee_state.dart';
 import 'package:supy_io_test/features/employee/presentation/redux/employee_thunks.dart';

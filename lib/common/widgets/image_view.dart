@@ -4,7 +4,7 @@ import 'package:photo_view/photo_view.dart';
 import 'package:supy_io_test/libraries/flutter_screenutil/flutter_screenutil.dart';
 
 import 'close_widget.dart';
-import 'loading_widget.dart';
+import 'lottie_widget.dart';
 
 class ImageView extends StatelessWidget {
   final String image;

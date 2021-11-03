@@ -1,7 +1,7 @@
 import 'package:either_dart/either.dart';
 import 'package:supy_io_test/common/exceptions/network_exceptions/network_exceptions.dart';
 import 'package:supy_io_test/common/networks/api_result/api_result.dart';
-import 'package:supy_io_test/common/platform/connectivity.dart';
+import 'package:supy_io_test/common/services/connectivity.dart';
 import 'package:supy_io_test/features/employee/domain/interfaces/i_employee_repository.dart';
 import 'package:supy_io_test/features/employee/infrastructure/data_source/remote/employee_remote.dart';
 import 'package:supy_io_test/features/employee/infrastructure/models/employee_model.dart';
