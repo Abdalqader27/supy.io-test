@@ -11,8 +11,8 @@ class EmployeeRemote extends ApiEmployeeService {
   EmployeeRemote({required this.dioClient});
 
   @override
-  Future<Either<NetworkExceptions, List<EmployeeModel>>>
-      fetchAllEmployee() async {
+  Future<Either<NetworkExceptions, List<EmployeeModel>>> fetchAllEmployee(
+      {int? limit}) async {
     try {
       final response = await dioClient.get(kEmployeeRoute);
       List<EmployeeModel> employeeList = List<EmployeeModel>.from(

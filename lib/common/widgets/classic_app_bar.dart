@@ -22,7 +22,7 @@ class ClassicAppBar extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               MaterialText.headLine5(title),
-              Visibility(visible: subTitle != null, child: Text(subTitle!)),
+              if (subTitle != null) MaterialText.subTitle1(subTitle ?? "")
             ],
           ),
         ),

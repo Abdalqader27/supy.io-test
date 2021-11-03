@@ -11,9 +11,11 @@ final kLightMod = ThemeData(
   primaryColor: kPRIMARY,
   brightness: Brightness.light,
   backgroundColor: kWhite,
+  scaffoldBackgroundColor: kWhite,
   textTheme: textTheme,
   fontFamily: Assets.fontsSstArabicBold,
   iconTheme: const IconThemeData(color: kPRIMARY),
+  primaryIconTheme: const IconThemeData(color: kPRIMARY),
   cardTheme: kCardStyle1,
   colorScheme: ThemeData.light().colorScheme.copyWith(
         primary: kPRIMARY,
@@ -27,6 +29,7 @@ final kDarkMod = ThemeData(
   brightness: Brightness.dark,
   textTheme: textTheme,
   cardTheme: kCardStyle1,
+  primaryIconTheme: const IconThemeData(color: kPRIMARY),
   fontFamily: Assets.fontsSstArabicBold,
   colorScheme: ThemeData.dark().colorScheme.copyWith(
         primary: kPRIMARY,

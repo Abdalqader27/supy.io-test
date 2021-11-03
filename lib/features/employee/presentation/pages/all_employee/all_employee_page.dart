@@ -19,7 +19,6 @@ class _AllEmployeePageState extends State<AllEmployeePage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Theme.of(context).backgroundColor,
         body: RPadding.all16(
           child: Column(
             children: [
@@ -39,7 +38,7 @@ class _AllEmployeePageState extends State<AllEmployeePage> {
                     } else if (state is FailureState) {
                       return Text(state.message);
                     } else {
-                      return const LoadingWidget();
+                      return const LottieWidget.loading();
                     }
                   },
                 ),

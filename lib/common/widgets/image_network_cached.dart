@@ -9,14 +9,8 @@ class ImageNetwork extends StatelessWidget {
   final String path;
   final BoxFit? fit;
   final Widget? placeHolder;
-  final bool hasHero;
 
-  const ImageNetwork(
-      {Key? key,
-      required this.path,
-      this.fit,
-      this.placeHolder,
-      this.hasHero = true})
+  const ImageNetwork({Key? key, required this.path, this.fit, this.placeHolder})
       : super(key: key);
 
   @override
@@ -34,13 +28,7 @@ class ImageNetwork extends StatelessWidget {
               },
             )),
         onTap: () {
-          if (hasHero) {
-            Get.dialog(Center(
-                child: Hero(
-              child: ImageView(image: path, showBack: true),
-              tag: path,
-            )));
-          }
+          Get.dialog(Center(child: ImageView(image: path, showBack: true)));
         });
   }
 }

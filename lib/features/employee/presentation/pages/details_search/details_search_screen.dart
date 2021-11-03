@@ -4,6 +4,7 @@ import 'package:supy_io_test/common/widgets/classic_app_bar.dart';
 import 'package:supy_io_test/common/widgets/loading_widget.dart';
 import 'package:supy_io_test/features/employee/presentation/redux/employee_state.dart';
 import 'package:supy_io_test/features/employee/presentation/redux/employee_thunks.dart';
+import 'package:supy_io_test/generated/assets.dart';
 import 'package:supy_io_test/libraries/el_widgets/el_widgets.dart';
 import 'package:supy_io_test/libraries/el_widgets/widgets/responsive_padding.dart';
 import 'package:supy_io_test/libraries/el_widgets/widgets/responsive_sized_box.dart';
@@ -25,7 +26,7 @@ class _DetailsSearchPageState extends State<DetailsSearchPage> {
         body: RPadding.all16(
           child: Column(
             children: [
-              const ClassicAppBar(title: "Hey", subTitle: 'Nice to meet sir  '),
+              const ClassicAppBar(title: "Search"),
               const RSizedBox.v32(),
               Expanded(
                 child: StoreConnector<EmployeeState, dynamic>(
@@ -37,9 +38,10 @@ class _DetailsSearchPageState extends State<DetailsSearchPage> {
                       final employee = state.employee!;
                       return MaterialText.headLine6(employee.name.toString());
                     } else if (state is FailureState) {
-                      return Text(state.message);
+                      return const LottieWidget.notFound();
                     } else {
-                      return const LoadingWidget();
+                      return const LottieWidget.loading(
+                          path: Assets.lottieSearch);
                     }
                   },
                 ),
@@ -47,11 +49,6 @@ class _DetailsSearchPageState extends State<DetailsSearchPage> {
             ],
           ),
         ),
-
-        // Center(
-        //     child: RPadding.all8(
-        //         child: Lottie.asset(Assets.lottieSearch, height: 0.2.sh)),
-        //   ),
       ),
     );
   }

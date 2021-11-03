@@ -19,6 +19,7 @@ class EmployeeItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final TextTheme textTheme = Theme.of(context).textTheme;
     return GestureDetector(
       onTap: tap,
       child: Row(
@@ -33,14 +34,11 @@ class EmployeeItem extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
                       RPadding.all8(
-                        child: MaterialText.headLine6(
-                          employee.name,
-                          style: Theme.of(context)
-                              .textTheme
-                              .subtitle2!
-                              .copyWith(fontWeight: FontWeight.bold),
-                        ),
-                      ),
+                          child: MaterialText.headLine6(
+                        employee.name,
+                        style: textTheme.subtitle2!
+                            .copyWith(fontWeight: FontWeight.bold),
+                      )),
                       RPadding.all8(
                         child: MaterialText.subTitle1(employee.description),
                       )
@@ -53,7 +51,7 @@ class EmployeeItem extends StatelessWidget {
     );
   }
 
-  Widget imageCircleNetwork(image) {
+  Widget imageCircleNetwork(String image) {
     return Hero(
       tag: index.toString(),
       child: ClipOval(

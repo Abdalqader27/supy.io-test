@@ -16,7 +16,7 @@ class EmployeeRepository extends IEmployeeRepository {
   }) : super();
 
   @override
-  Future<ApiResult<List<EmployeeModel>>> fetchAllEmployee() async {
+  Future<ApiResult<List<EmployeeModel>>> fetchAllEmployee({int? limit}) async {
     if (await connectivity.isConnected) {
       final Either<NetworkExceptions, List<EmployeeModel>> employeeResult =
           await employeeRemote.fetchAllEmployee();
