@@ -451,7 +451,7 @@ class _$Empty<T> with DiagnosticableTreeMixin implements Empty<T> {
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties..add(DiagnosticsProperty('type', 'ApiResult<$T>.empty'));
+    properties.add(DiagnosticsProperty('type', 'ApiResult<$T>.empty'));
   }
 
   @override
@@ -570,7 +570,7 @@ class _$Loading<T> with DiagnosticableTreeMixin implements Loading<T> {
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties..add(DiagnosticsProperty('type', 'ApiResult<$T>.loading'));
+    properties.add(DiagnosticsProperty('type', 'ApiResult<$T>.loading'));
   }
 
   @override

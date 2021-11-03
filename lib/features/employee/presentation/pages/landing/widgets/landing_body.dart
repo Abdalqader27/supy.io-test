@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
-import 'package:supy_io_test/core/config/theme/colors.dart';
+import 'package:supy_io_test/common/config/theme/colors.dart';
 import 'package:supy_io_test/features/employee/presentation/pages/all_employee/all_employee_page.dart';
 import 'package:supy_io_test/features/employee/presentation/pages/details_search/details_search_screen.dart';
 import 'package:supy_io_test/features/employee/presentation/pages/landing/widgets/search_bar.dart';
@@ -12,7 +12,8 @@ import 'package:supy_io_test/libraries/init_app/initializers/run_app/export_pack
     hide Column;
 
 class LandingBody extends StatelessWidget {
-  const LandingBody({Key? key}) : super(key: key);
+  LandingBody({Key? key}) : super(key: key);
+  final TextEditingController controller = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -26,17 +27,15 @@ class LandingBody extends StatelessWidget {
           const MaterialText.bodyText2('Nice to meet you !!'),
           const RSizedBox.v64(),
           SearchBar(
+            keyboardType: TextInputType.number,
+            editingController: controller,
             onTapSearch: () {
-              Get.to(() => const DetailsSearchPage());
+              if (controller.text.isNumericOnly) {
+                Get.to(() => const DetailsSearchPage());
+              }
             },
           ),
-          // RawMaterialButton(
-          //   fillColor: kPRIMARY,
-          //   onPressed: () {},
-          //   child: MaterialText.button('Show All Employee'),
-          // ),
           const RSizedBox.v32(),
-
           TextButton(
             onPressed: () {
               Get.to(() => const AllEmployeePage());

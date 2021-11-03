@@ -5,8 +5,8 @@ import 'package:supy_io_test/common/networks/dio_client.dart';
 import 'package:supy_io_test/common/platform/connectivity.dart';
 import 'package:supy_io_test/features/employee/infrastructure/data_source/remote/employee_remote.dart';
 import 'package:supy_io_test/features/employee/infrastructure/repositories/employee_repository.dart';
-import 'package:supy_io_test/features/employee/presentation/redux/newredux/app_state.dart';
-import 'package:supy_io_test/features/employee/presentation/redux/newredux/reducer.dart';
+import 'package:supy_io_test/features/employee/presentation/redux/app_state.dart';
+import 'package:supy_io_test/features/employee/presentation/redux/reducer.dart';
 
 import '../../../_injections.dart';
 

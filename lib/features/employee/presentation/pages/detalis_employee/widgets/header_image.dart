@@ -28,12 +28,9 @@ class HeaderImage extends StatelessWidget {
         background: ClipPath(
           clipper: CurvedClipper(),
           child: Stack(
-            children: const [
-              Positioned.fill(
-                  child: ImageNetwork(
-                      path:
-                          'https://cdn.fakercloud.com/avatars/kazaky999_128.jpg')),
-              CloseWidget(
+            children: [
+              Positioned.fill(child: ImageNetwork(path: image)),
+              const CloseWidget(
                 icon: Icons.arrow_back_ios_sharp,
               ),
             ],

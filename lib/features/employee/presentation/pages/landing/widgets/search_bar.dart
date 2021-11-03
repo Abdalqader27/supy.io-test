@@ -1,18 +1,17 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:supy_io_test/core/config/theme/colors.dart';
+import 'package:supy_io_test/common/config/theme/colors.dart';
 import 'package:supy_io_test/libraries/el_widgets/el_widgets.dart';
 import 'package:supy_io_test/libraries/flutter_screenutil/flutter_screenutil.dart';
 
 class SearchBar extends StatelessWidget {
   final TextEditingController? editingController;
-  final keyboardType;
-  final iconColor;
-  final focusNode;
-  final mainContext;
+  final TextInputType? keyboardType;
+  final Color? iconColor;
+  final FocusNode? focusNode;
   final int maxLines;
   final double paddingHorizontal;
-  final maxNumber;
+  final int? maxNumber;
   final VoidCallback? tap;
   final VoidCallback onTapSearch;
   final ValueChanged<String>? onChange;
@@ -23,7 +22,6 @@ class SearchBar extends StatelessWidget {
       this.keyboardType,
       this.iconColor,
       this.focusNode,
-      this.mainContext,
       this.maxNumber,
       this.tap,
       this.onChange,
@@ -54,6 +52,7 @@ class SearchBar extends StatelessWidget {
                     readOnly: tap != null,
                     controller: editingController,
                     focusNode: focusNode,
+                    keyboardType: keyboardType,
                     textAlign: TextAlign.center,
                     decoration: _inputDecoration(),
                     autofocus: false,
@@ -104,7 +103,7 @@ class SearchBar extends StatelessWidget {
   }
 
   InputDecoration _inputDecoration() {
-    return InputDecoration(
-        border: InputBorder.none, hintText: 'Employee Searching.....');
+    return const InputDecoration(
+        border: InputBorder.none, hintText: 'Search by id......');
   }
 }

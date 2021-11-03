@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:supy_io_test/core/config/theme/text_theme.dart';
+import 'package:supy_io_test/common/config/theme/text_theme.dart';
 import 'package:supy_io_test/generated/assets.dart';
 import 'package:theme_provider/theme_provider.dart';
 

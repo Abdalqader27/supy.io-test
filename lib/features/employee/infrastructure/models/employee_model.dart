@@ -24,10 +24,15 @@ class EmployeeModel extends EmployeeEntity {
             description: description,
             name: name);
 
+  @override
   String createdAt;
+  @override
   String name;
+  @override
   String avatar;
+  @override
   String description;
+  @override
   String id;
 
   factory EmployeeModel.fromJson(Map<String, dynamic> json) => EmployeeModel(

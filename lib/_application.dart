@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
-import 'core/config/app/app_config.dart';
-import 'core/config/theme/theme_config.dart';
+import 'common/config/app/app_config.dart';
+import 'common/config/theme/theme_config.dart';
 import 'features/employee/presentation/pages/landing/landing_page.dart';
 import 'libraries/flutter_screenutil/flutter_screenutil.dart';
 import 'libraries/init_app/initializers/easy_localization/easy_localization_initializer.dart';

@@ -1,5 +1,5 @@
 import 'package:supy_io_test/common/networks/api_result/api_result.dart';
-import 'package:supy_io_test/features/employee/presentation/redux/newredux/app_state.dart';
+import 'package:supy_io_test/features/employee/presentation/redux/app_state.dart';
 
 import 'actions.dart';
 

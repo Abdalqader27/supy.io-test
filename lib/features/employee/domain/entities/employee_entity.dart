@@ -7,9 +7,9 @@ abstract class EmployeeEntity {
     required this.id,
   });
 
-  String createdAt;
-  String name;
-  String avatar;
-  String description;
-  String id;
+  final String createdAt;
+  final String name;
+  final String avatar;
+  final String description;
+  final String id;
 }

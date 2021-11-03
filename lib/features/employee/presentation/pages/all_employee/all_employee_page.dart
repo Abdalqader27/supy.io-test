@@ -5,8 +5,8 @@ import 'package:supy_io_test/_injections.dart';
 import 'package:supy_io_test/common/widgets/classic_app_bar.dart';
 import 'package:supy_io_test/common/widgets/loading_widget.dart';
 import 'package:supy_io_test/features/employee/presentation/pages/all_employee/widgets/all_employee_body.dart';
-import 'package:supy_io_test/features/employee/presentation/redux/newredux/app_state.dart';
-import 'package:supy_io_test/features/employee/presentation/redux/newredux/thunks.dart';
+import 'package:supy_io_test/features/employee/presentation/redux/app_state.dart';
+import 'package:supy_io_test/features/employee/presentation/redux/thunks.dart';
 import 'package:supy_io_test/libraries/el_widgets/el_widgets.dart';
 
 class AllEmployeePage extends StatefulWidget {
