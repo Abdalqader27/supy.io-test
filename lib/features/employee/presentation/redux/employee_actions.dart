@@ -9,6 +9,15 @@ class FailureAction {
 
   FailureAction(this.message);
 }
+class LoadItemsPageAction {
+  LoadItemsPageAction({
+    required this.pageNumber,
+    required this.itemsPerPage,
+  });
+
+  final int pageNumber;
+  final int itemsPerPage;
+}
 
 class GetEmployeesAction {
   final List<EmployeeModel> listEmployeeModel;
@@ -21,3 +30,4 @@ class GetEmployeeByIdAction {
 
   GetEmployeeByIdAction(this.employeeModel);
 }
+

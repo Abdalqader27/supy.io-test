@@ -38,11 +38,8 @@ class _DetailsSearchPageState extends State<DetailsSearchPage> {
                     if (state is SuccessState) {
                       final employee = state.employee!;
                       return BodyDetailsSearchScreen(employeeModel: employee);
-                    } else if (state is EmptyState) {
+                    } else if (state is EmptyState || state is FailureState) {
                       return const LottieWidget.notFound();
-                    } else if (state is FailureState) {
-                      return Center(
-                          child: MaterialText.headLine6(state.message));
                     } else {
                       return const LottieWidget.loading(
                           path: Assets.lottieSearch);

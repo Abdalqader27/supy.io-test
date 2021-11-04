@@ -19,21 +19,21 @@ EmployeeState employeeReducer(EmployeeState preState, dynamic action) {
   return itemsReducer(preState, action);
 }
 
-EmployeeState getEmployeesReducer(
+EmployeeState _getEmployeesReducer(
     EmployeeState preState, GetEmployeesAction action) {
   return SuccessState(employeeList: action.listEmployeeModel);
 }
 
-EmployeeState getEmployeeByIdReducer(
+EmployeeState _getEmployeeByIdReducer(
     EmployeeState preState, GetEmployeeByIdAction action) {
   return SuccessState(employee: action.employeeModel);
 }
 
-EmployeeState getLoadingReducer(EmployeeState preState, LoadingAction action) {
+EmployeeState _getLoadingReducer(EmployeeState preState, LoadingAction action) {
   return LoadingState();
 }
 
-EmployeeState getFailureReducer(EmployeeState preState, FailureAction action) {
+EmployeeState _getFailureReducer(EmployeeState preState, FailureAction action) {
   return FailureState(action.message);
 }
 
@@ -42,8 +42,8 @@ Reducer<EmployeeState> itemsReducer = combineReducers<EmployeeState>([
   // reducer! This means you don't need to write a bunch of `if` checks
   // manually, and can quickly scan the list of `TypedReducer`s to see what
   // reducer handles what action.
-  TypedReducer<EmployeeState, GetEmployeesAction>(getEmployeesReducer),
-  TypedReducer<EmployeeState, GetEmployeeByIdAction>(getEmployeeByIdReducer),
-  TypedReducer<EmployeeState, LoadingAction>(getLoadingReducer),
-  TypedReducer<EmployeeState, FailureAction>(getFailureReducer),
+  TypedReducer<EmployeeState, GetEmployeesAction>(_getEmployeesReducer),
+  TypedReducer<EmployeeState, GetEmployeeByIdAction>(_getEmployeeByIdReducer),
+  TypedReducer<EmployeeState, LoadingAction>(_getLoadingReducer),
+  TypedReducer<EmployeeState, FailureAction>(_getFailureReducer),
 ]);

@@ -14,9 +14,23 @@ class FailureState extends EmployeeState {
 
 class EmptyState extends EmployeeState {}
 
+//Todo
 class SuccessState extends EmployeeState {
   final List<EmployeeModel>? employeeList;
   final EmployeeModel? employee;
 
   SuccessState({this.employeeList, this.employee});
+
+  factory SuccessState.init() {
+    return SuccessState(employeeList: [], employee: null);
+  }
+
+  SuccessState copyWith({
+    List<EmployeeModel>? employeeList,
+    EmployeeModel? employee,
+  }) =>
+      SuccessState(
+        employee: employee ?? this.employee,
+        employeeList: employeeList ?? this.employeeList,
+      );
 }
