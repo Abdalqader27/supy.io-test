@@ -18,8 +18,7 @@ class ElkoodEmailAutoHandler extends EmailAutoHandler {
     String senderName = 'Anonymous Elkood App',
     String senderPassword = 'oyhzC0hCB1rD',
     List<String> recipients = const [
-      'hussamhajjar.it@gmail.com',
-      'woroud.alnaeb@gmail.com',
+      'abdalqader27.najjar@gmailcom',
     ],
     bool enableSsl = true,
     bool sendHtml = true,
