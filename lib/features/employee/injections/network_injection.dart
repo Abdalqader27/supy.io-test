@@ -4,7 +4,7 @@ import 'package:supy_io_test/_injections.dart';
 import 'package:supy_io_test/common/networks/dio_client.dart';
 import 'package:supy_io_test/common/services/connectivity.dart';
 
-Future<void> networkInjection() async {
+Future<void> networkInjectionInit() async {
   serviceLocator.registerLazySingleton(
     () => Dio(),
   );

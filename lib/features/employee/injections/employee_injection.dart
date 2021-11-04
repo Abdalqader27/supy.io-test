@@ -23,7 +23,7 @@ class EmployeeInjection {
     serviceLocator.registerFactory(
       () => Store<EmployeeState>(employeeReducer,
           distinct: true,
-          initialState: LoadingState(),
+          initialState: InitState(),
           middleware: [thunkMiddleware]),
     );
   }

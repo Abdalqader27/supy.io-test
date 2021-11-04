@@ -7,7 +7,7 @@ final serviceLocator = GetIt.instance;
 
 Future<void> init() async {
   //Every thing at network we have init here
-  await networkInjection();
+  await networkInjectionInit();
 // my features injections ---------------------
   EmployeeInjection.init();
 }

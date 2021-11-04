@@ -4,6 +4,8 @@ abstract class EmployeeState {
   const EmployeeState();
 }
 
+class InitState extends EmployeeState {}
+
 class LoadingState extends EmployeeState {}
 
 class FailureState extends EmployeeState {
